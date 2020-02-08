@@ -444,6 +444,17 @@ public class RNBluetoothEscposPrinterModule extends ReactContextBaseJavaModule
             Log.d(TAG, e.getMessage());
         }
     }
+    
+    @ReactMethod
+    public void beep(int m, int t) {
+        try{
+            byte[] command = PrinterCommand.POS_Set_Beep(m,t);
+            sendDataByte(command);
+
+         }catch (Exception e){
+            Log.d(TAG, e.getMessage());
+        }
+    } 
 
 
     @ReactMethod
